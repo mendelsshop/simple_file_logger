@@ -1,4 +1,4 @@
-# [![crates.io](https://img.shields.io/crates/v/simple_file_logger.svg?label=latest%20version)](https://crates.io/crates/simple_file_logger) [![Crates.io](https://img.shields.io/crates/d/simple_file_logger?label=crates.io%20downloads)](https://crates.io/crates/simple_file_logger)[![docs.rs](https://docs.rs/simple_file_logger/badge.svg)](https://docs.rs/simple_file_logger/)
+# [![crates.io](https://img.shields.io/crates/v/simple_file_logger.svg?label=latest%20version)](https://crates.io/crates/simple_file_logger) [![Crates.io](https://img.shields.io/crates/d/simple_file_logger?label=crates.io%20downloads)](https://crates.io/crates/simple_file_logger) [![docs.rs](https://docs.rs/simple_file_logger/badge.svg)](https://docs.rs/simple_file_logger/)
 
 # Simple File Logger
 
