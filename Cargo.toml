@@ -5,7 +5,7 @@ edition = "2021"
 license = "MIT"
 repository = "https://github.com/mendelsshop/simple_file_logger"
 keywords = ["logging", "logger", "file_logger", "log"]
-categories = ["logging::loggers", "log", "logging"]
+categories = ["development-tools::debugging"]
 description = "A simple file logger for Rust"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
