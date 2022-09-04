@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 license = "MIT"
 repository = "https://github.com/mendelsshop/simple_file_logger"
-keywords = ["logging", "logger", "file logger", "log"]
+keywords = ["logging", "logger", "file_logger", "log"]
 categories = ["logging::loggers", "log", "logging"]
 description = "A simple file logger for Rust"
 
