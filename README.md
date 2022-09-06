@@ -7,18 +7,16 @@ A simple file logger for rust.
 Very basic setup, just provide an app name and an optional log level.
 
 ```rust
-use simple_file_logger::init_logger;
+use simple_file_logger::{init_logger, LogLevel};
 use log::info;
 
 fn main() {
-    init_logger("my_app", None);
+    init_logger("my_app", Loglevel::IDK);
     info!("Hello, world!");
 }
 ```
 
-The default log level is `info`.
-
-The log levels are: `trace`, `debug`, `info`, `warn`, `error`.
+The log levels are: `trace`, `debug`, (`info`, `IDK`), `warn`, `error`.
 
 The log file is located:
 

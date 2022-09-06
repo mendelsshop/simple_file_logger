@@ -23,34 +23,41 @@ fn get_log_path(program_name: &str) -> PathBuf {
 /// Once the logger is initialized, it can be used with the macros: trace!, debug!, info!, warn!, error! from the [log](https://crates.io/crates/log) crate.
 /// # Example:
 /// ```rust
-/// use simple_file_logger::init_logger;
+/// use simple_file_logger::{init_logger, LogLevel};
 /// use log::info;
 ///
-/// init_logger("my_app", None);
+/// init_logger("my_app", LogLevel::IDK);
 /// info!("Hello, world!");
 /// ```
 
-pub fn init_logger(program_name: &str, level: Option<&str>) -> Result<(), Box<dyn Error>> {
+pub fn init_logger(program_name: &str, level: LogLevel) -> Result<(), Box<dyn Error>> {
     if program_name.is_empty() {
         return Err("Program name must not be empty.".into());
     }
-    if let Some(level) = level {
-        match level {
-            "trace" => {}
-            "debug" => {}
-            "info" => {}
-            "warn" => {}
-            "error" => {}
-            other => {
-                return Err(format!("Invalid log level: {}", other).into());
-            }
-        }
-    }
+    let level = match level {
+        LogLevel::Trace => "trace",
+        LogLevel::Debug => "debug",
+        LogLevel::Info => "info",
+        LogLevel::Warn => "warn",
+        LogLevel::Error => "error",
+        LogLevel::IDK => "info",
+    };
     let path = get_log_path(program_name);
     let log_path = path.to_str().unwrap();
     let log_path = flexi_logger::FileSpec::default().directory(log_path);
-    Logger::try_with_str(level.unwrap_or("info"))?
+    Logger::try_with_str(level)?
         .log_to_file(log_path)
         .start()?;
     Ok(())
+}
+
+/// Used to set the minimum log level displayed in the log file.
+pub enum LogLevel {
+    Trace,
+    Debug,
+    Info,
+    Warn,
+    Error,
+    /// Same as info
+    IDK
 }
