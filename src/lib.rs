@@ -40,28 +40,25 @@ pub fn init_logger(program_name: &str, level: LogLevel) -> Result<(), Box<dyn Er
         LogLevel::Info => "info",
         LogLevel::Warn => "warn",
         LogLevel::Error => "error",
-
     };
     let path = get_log_path(program_name);
     let log_path = path.to_str().unwrap();
     let log_path = flexi_logger::FileSpec::default().directory(log_path);
-    Logger::try_with_str(level)?
-        .log_to_file(log_path)
-        .start()?;
+    Logger::try_with_str(level)?.log_to_file(log_path).start()?;
     Ok(())
 }
 #[macro_export]
 /// This macro initializes the logger with the given log level or the default log level (info) if no log level is given.
-/// 
+///
 /// Log level can be one of the following: trace, debug, info, warn, error as from [LogLevel](enum.LogLevel.html) enum.
-/// 
+///
 /// expands to a result of type `Result<(), Box<dyn Error>>` like [init_logger](fn.init_logger.html).
-/// 
+///
 /// # Example:
 /// ```rust
 /// use simple_file_logger::init_logger;    
 /// use log::info;
-/// 
+///
 /// init_logger!("my_app").unwrap();
 /// info!("Hello, world!");
 macro_rules! init_logger {
