@@ -16,7 +16,7 @@ fn main() {
 }
 ```
 
-or if you want to use the default log level (and save typing 3 characters):
+or if you want to use the default log level (and save typing around 15 characters):
 
 ```rust
 use simple_file_logger::init_logger;
