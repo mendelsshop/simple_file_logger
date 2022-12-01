@@ -11,12 +11,23 @@ use simple_file_logger::{init_logger, LogLevel};
 use log::info;
 
 fn main() {
-    init_logger("my_app", Loglevel::IDK);
+    init_logger("my_app", Loglevel::Info).unwrap();
     info!("Hello, world!");
 }
 ```
 
-The log levels are: `trace`, `debug`, (`info`, `IDK`), `warn`, `error`.
+or if you want to use the default log level (and save typing 3 characters):
+
+```rust
+use simple_file_logger::init_logger;
+
+fn main() {
+    init_logger!("my_app").unwrap();
+    info!("Hello, world!");
+}
+```
+
+The log levels are: `trace`, `debug`, `info` , `warn`, `error`.
 
 The log file is located:
 

@@ -26,7 +26,7 @@ fn get_log_path(program_name: &str) -> PathBuf {
 /// use simple_file_logger::{init_logger, LogLevel};
 /// use log::info;
 ///
-/// init_logger("my_app", LogLevel::IDK);
+/// init_logger("my_app", LogLevel::Info).unwrap();
 /// info!("Hello, world!");
 /// ```
 
@@ -40,7 +40,7 @@ pub fn init_logger(program_name: &str, level: LogLevel) -> Result<(), Box<dyn Er
         LogLevel::Info => "info",
         LogLevel::Warn => "warn",
         LogLevel::Error => "error",
-        LogLevel::IDK => "info",
+
     };
     let path = get_log_path(program_name);
     let log_path = path.to_str().unwrap();
@@ -50,6 +50,28 @@ pub fn init_logger(program_name: &str, level: LogLevel) -> Result<(), Box<dyn Er
         .start()?;
     Ok(())
 }
+#[macro_export]
+/// This macro initializes the logger with the given log level or the default log level (info) if no log level is given.
+/// 
+/// Log level can be one of the following: trace, debug, info, warn, error as from [LogLevel](enum.LogLevel.html) enum.
+/// 
+/// expands to a result of type `Result<(), Box<dyn Error>>` like [init_logger](fn.init_logger.html).
+/// 
+/// # Example:
+/// ```rust
+/// use simple_file_logger::init_logger;    
+/// use log::info;
+/// 
+/// init_logger!("my_app").unwrap();
+/// info!("Hello, world!");
+macro_rules! init_logger {
+    ($program_name:expr, $level:expr) => {
+        init_logger($program_name, $level);
+    };
+    ($program_name:expr) => {
+        init_logger($program_name, $crate::LogLevel::Info);
+    };
+}
 
 /// Used to set the minimum log level displayed in the log file.
 pub enum LogLevel {
@@ -58,6 +80,22 @@ pub enum LogLevel {
     Info,
     Warn,
     Error,
-    /// Same as info
-    IDK
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_get_log_path() {
+        let path = get_log_path("my_app");
+        let path = path.to_str().unwrap();
+        assert!(path.contains("my_app"));
+        assert!(path.contains("log"));
+    }
+
+    #[test]
+    fn test_init_logger() {
+        init_logger!("my_app");
+    }
 }

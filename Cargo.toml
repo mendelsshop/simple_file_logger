@@ -1,6 +1,6 @@
 [package]
 name = "simple_file_logger"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2021"
 license = "MIT"
 repository = "https://github.com/mendelsshop/simple_file_logger"
@@ -12,4 +12,4 @@ description = "A simple file logger for Rust"
 
 [dependencies]
 dirs = "4.0.0"
-flexi_logger = "0.23.1"
+flexi_logger = "0.24.1"
