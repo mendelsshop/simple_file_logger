@@ -63,10 +63,10 @@ pub fn init_logger(program_name: &str, level: LogLevel) -> Result<(), Box<dyn Er
 /// info!("Hello, world!");
 macro_rules! init_logger {
     ($program_name:expr, $level:expr) => {
-        init_logger($program_name, $level);
+        $crate::init_logger($program_name, $level);
     };
     ($program_name:expr) => {
-        init_logger($program_name, $crate::LogLevel::Info);
+        $crate::init_logger($program_name, $crate::LogLevel::Info);
     };
 }
 
