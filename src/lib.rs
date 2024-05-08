@@ -1,9 +1,9 @@
 #![doc = include_str!("../README.md")]
+#[cfg(feature = "clap")]
+use clap::Subcommand;
 use flexi_logger::{FlexiLoggerError, Logger};
 #[cfg(feature = "serde")]
 use serde::{Deserialize, Serialize};
-#[cfg(feature = "clap")]
-use clap::Subcommand;
 extern crate dirs;
 
 use std::{fmt, path::PathBuf};
