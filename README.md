@@ -36,3 +36,8 @@ The log file is located:
 |Windows| %FOLDERID_LocalAppData%\program_name\log\program_nametime_stamp.log | C:\Users\username\AppData\Local\program_name\log\program_name_2020-05-01T12-34-56.log|
 |Linux| $XDG_DATA_HOME/program_name/log/program_name_time_stamp.log |/home/username/.local/share/program_name/log/program_name_2020-05-01T12-34-56.log|
 |macOS| $HOME/Library/Application Support/program_name/log/program_nametime_stamp.log |Users/username/Library/Application Support/program_name/log/program_name_2020-05-01T12-34-56.log|
+
+## Optional features
+
+- clap: enable clap parsing for LogLevel
+- serde: enable serde serialization and deserialization on LogLevel
