@@ -1,10 +1,9 @@
 #![doc = include_str!("../README.md")]
 #[cfg(feature = "clap")]
-use clap::Subcommand;
+use clap::ValueEnum;
 use flexi_logger::{FlexiLoggerError, Logger};
 #[cfg(feature = "serde")]
 use serde::{Deserialize, Serialize};
-extern crate dirs;
 
 use std::{fmt, path::PathBuf};
 
@@ -103,7 +102,8 @@ macro_rules! init_logger {
 }
 
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
-#[cfg_attr(feature = "clap", derive(Subcommand))]
+// TODO: have different features for different derives with clap
+#[cfg_attr(feature = "clap", derive(ValueEnum))]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Default)]
 /// Used to set the minimum log level displayed in the log file.
 pub enum LogLevel {

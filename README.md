@@ -39,5 +39,5 @@ The log file is located:
 
 ## Optional features
 
-- clap: enable clap parsing for LogLevel
-- serde: enable serde serialization and deserialization on LogLevel
+- clap: enable clap parsing for LogLevel, Uses the ValueEnum proc-macro.
+- serde: enable serde serialization and deserialization on LogLevel.
