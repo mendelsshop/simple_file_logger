@@ -1,6 +1,6 @@
 [package]
 name = "simple_file_logger"
-version = "0.4.1"
+version = "0.4.2"
 edition = "2021"
 license = "MIT"
 repository = "https://github.com/mendelsshop/simple_file_logger"

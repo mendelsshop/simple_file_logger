@@ -4,6 +4,12 @@
 
 A simple file logger for rust.
 
+The crate [log](https://crates.io/crates/log) is required to use this package. 
+
+```
+cargo add log
+```
+
 Very basic setup, just provide an app name and an optional log level.
 
 ```rust
