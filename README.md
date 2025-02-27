@@ -4,7 +4,7 @@
 
 A simple file logger for rust.
 
-The crate <a href="https://crates.io/crates/log">log</a> is required to use this package. 
+The crate [log](https://crates.io/crates/log) is required to use this package. 
 
 ```
 cargo add log
